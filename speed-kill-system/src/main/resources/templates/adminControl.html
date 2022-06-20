@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- 页面显示部分-->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <h1>秒杀活动</h1>
+        </div>
+        <div class="panel-body">
+
+
+
+                <form action="http://127.0.0.1:7777/admin/upload"  method="post" enctype="multipart/form-data"  class="ui form">
+                    <input type="file" class="ui compact teal basic" name="file">
+
+                    <input type="datetime-local" placeholder="请选择开始时间" name="startTime"/>
+                    <input type="datetime-local" placeholder="请选择结束时间" name="endTime"/>
+                    <input type="text" placeholder="名字" name="name"/>
+                    <input type="text" placeholder="数量" name="number"/>
+
+                    <input type="submit" value="提交">
+                </form>
+
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let date = new Date()
+    let yyyy = date.getFullYear()
+    let MM = (date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : (date.getMonth() + 1)
+    let dd = date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate()
+    let HH = date.getHours() < 10 ? ("0" + date.getHours()) : date.getHours()
+    let mm = date.getMinutes() < 10 ? ("0" + date.getMinutes()) : date.getMinutes()
+
+    let curDay = yyyy + '-' + MM + '-' + dd + 'T' + HH + ':' + mm;
+    $('.measureDate').val(curDay)
+    console.log(date)
+</script>
+
+
+
+</body>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
